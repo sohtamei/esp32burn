@@ -1,7 +1,6 @@
 # esp32 書き込みlog
 つくるっち/USB2BT/他のためのESP32書き込みlogデータ解析。  
-esptool.pyとesptool.exeの書き込みlogデータをキャプチャ・リバエンして書き込みツールを作成しています。  
-
+つくるっちアプリの書き込みツールはesptool.pyとesptool.exeの書き込みlogデータをキャプチャ・リバエンして作成しています。  
 
 ## esptool logのキャプチャ方法
 1. WireShark - USBPcap1でUSBキャプチャ開始。すべてのUSBデバイスがキャプチャされるためなるべくUSBデバイスを使わないこと
