@@ -105,21 +105,15 @@ flash_defl_end       reboot
 ```
 
 ## UART接続とUSB接続(C3とS3)
-UART接続での書き込みとUSB接続での書き込みは同じコマンドで行う。  
-ArduinoIDE ＆ USB接続書き込みのとき下記logメッセージが表示されるが、ボーレート=1200でOpen/CloseしてもBootモード切り替えは起きない。UART接続と同様DTR/RTS/シンクコマンドで行うっぽい。
+C3とS3はパソコンとマイコンの接続にUART接続とUSB接続２つの接続方法がある。  
+USB接続でのFlash書き込みのとき書き込み前にBootモードへの切り替えが必要で、ボーレート=1200でOpen/CloseすることによりBootモード切り替えを行う。
 ```
 シリアルポート「COM20」を1200bpsで開いて閉じる事によって、リセットを行っています。
 PORTS {COM20, } / {} => {}
 PORTS {} / {COM20, } => {COM20, }
 Found upload port: COM20
 ```
-現時点でDTR/RTS/シンクコマンドによるBootモード切り替えは下記の通り。  
-```
-esptool.exe     : OK  
-esptool.py      : NG  
-つくるっちアプリ : NG  
-```
-つくるっちアプリではUSB接続書き込みでのBootモード切り替えはできない、BootボタンによるBootモード設定が必要。
+つくるっちアプリでは現時点でBootモード切り替え非対応、BootボタンによるBootモード設定が必要。
 
 ## bootloader変換
 書き込み時2byteを置換する。
