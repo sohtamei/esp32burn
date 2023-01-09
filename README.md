@@ -104,19 +104,24 @@ flash_begin
 flash_defl_end       reboot
 ```
 
-## UART接続とUSB接続(C3とS3)
-C3とS3はパソコンとマイコンの接続にUART接続とUSB接続２つの接続方法がある。  
-USB接続でのFlash書き込みのとき書き込み前にBootモードへの切り替えが必要で、ボーレート=1200でOpen/CloseすることによりBootモード切り替えを行う。
+## UART接続とUSB接続(ESP32S3)
+S3はパソコンとマイコンの接続にUART接続とUSB接続２つの接続方法がある。  
+USB接続でのFlash書き込みのとき書き込み前にBootモードへの切り替えが必要で、ボーレート1200でOpen/CloseすることによりBootモード切り替えを行う。
 ```
 シリアルポート「COM20」を1200bpsで開いて閉じる事によって、リセットを行っています。
 PORTS {COM20, } / {} => {}
 PORTS {} / {COM20, } => {COM20, }
 Found upload port: COM20
 ```
-つくるっちアプリでは現時点でBootモード切り替え非対応、BootボタンによるBootモード設定が必要。
+つくるっちアプリではwebSerialを使っており、ボーレート1200でOpenすると直後にデバイス側から切断される。  
+つくるっちアプリ / ArduinoIDEどちらの場合でも書き込み後Bootモード → 通常モード切り替えは自動では出来ない。USB抜き差しやRESETが必要。
+
+## UART接続とUSB接続(ESP32C3)
+C3はパソコンとマイコンの接続にUART接続とUSB接続２つの接続方法がある。  
+USB接続でのFlash書き込みのとき、C3はS3のようなボーレート1200によるBootモード切り替えは不要。なぜかつくるっちではうまくいかない、BootボタンによりBootモード切り替え。
 
 ## bootloader変換
-書き込み時2byteを置換する。
+書き込み時2byteを置換する。どういう意味があるかは確認中。
 ```
 bootloader[2] = 0x02
 bootloader[3] = 0x2f(ESP32とESP32C3)、0x3f(ESP32C3)
