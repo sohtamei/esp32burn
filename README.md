@@ -62,7 +62,7 @@ python3 tools/esp32/esptool.py  --chip esp32s3 --port /dev/ttyS22 --baud 921600 
 ```
 
 ## ESP32 Flash書き込み
-つくるっちではesptoolのlogデータを元にESP32書き込みを実行。read_reg, write_regは無視、詳細は各logデータ参照。  
+つくるっちではesptoolのlogデータを元にESP32書き込みを実行、下記はそのコマンド概要。read_reg, write_regは無視、詳細は各logデータ参照。  
 ソースコードは [comlib.js](https://github.com/sohtamei/scratch-vm/blob/develop/src/extensions/scratch3_tukurutch/comlib.js)  
 ```
 # SYNC
