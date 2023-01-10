@@ -6,7 +6,7 @@
 1. WireShark - USBPcap1でUSBキャプチャ開始。PCに接続されたすべてのUSBデバイスがキャプチャされるため、なるべく他のUSBデバイスを使わないこと
 1. ArduinoIDE / Tukurutch.exe / esptool.py / esptool.exe のどれかでESP32書き込み実行
 1. WireSharkキャプチャ停止 - [ファイル] - [..として保存] - [ファイルの種類 - SuSE 6.3 tcpdump]で保存
-1. WSLでpcap2txt実行、`./pcap2txt xx.pcap 2 > xx.txt` でファイル変換
+1. WSLで [pcap2txt](pcap2txt) 実行、`./pcap2txt xx.pcap 2 > xx.txt` でファイル変換
 
 キャプチャしたデータは下記の通り。
 
@@ -128,7 +128,7 @@ bootloader[3] = 0x2f(ESP32とESP32C3)、0x3f(ESP32C3)
 ```
 
 ## 圧縮バイナリデータの復元
-FLASHデータは圧縮されている。復元は下記スクリプトで行う。
+FLASHデータは圧縮されている。復元は [conv.py](conv.py) で行う。
 ```
 python3 conv.py <圧縮文字列>
 ```
