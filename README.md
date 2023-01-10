@@ -3,7 +3,7 @@
 つくるっちアプリの書き込みツールはesptool.pyとesptool.exeの書き込みlogデータをキャプチャ・リバエンして作成しています。  
 
 ## esptool logのキャプチャ方法
-1. WireShark - USBPcap1でUSBキャプチャ開始。すべてのUSBデバイスがキャプチャされるためなるべくUSBデバイスを使わないこと
+1. WireShark - USBPcap1でUSBキャプチャ開始。PCに接続されたすべてのUSBデバイスがキャプチャされるため、なるべく他のUSBデバイスを使わないこと
 1. ArduinoIDE / Tukurutch.exe / esptool.py / esptool.exe のどれかでESP32書き込み実行
 1. WireSharkキャプチャ停止 - [ファイル] - [..として保存] - [ファイルの種類 - SuSE 6.3 tcpdump]で保存
 1. WSLでpcap2txt実行、`./pcap2txt xx.pcap 2 > xx.txt` でファイル変換
